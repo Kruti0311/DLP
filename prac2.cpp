@@ -49,9 +49,15 @@ bool testCase1(const string& ip) {
     return true;
 }
 
-// Case 2: Validate string that starts and ends with the same letter
+// Case 2: string over a b c, starts and end with same letter
 bool testCase2(const string& ip) {
     if (ip.empty()) return false;
+    for (char ch : ip) {
+        if (ch != 'a' && ch != 'b' && ch != 'c') {
+            return false;
+        }
+    }
+
     return ip.front() == ip.back();
 }
 
@@ -64,7 +70,7 @@ bool testCase3(const string& ip) {
 int main() {
     string ip;
 
-    cout << "Enter the input string for Finite Automaton (only 'a' and 'b'): ";
+    cout << "Finite Automaton (only 'a' and 'b'): ";
     cin >> ip;
     if (finite(ip)) {
         cout << "Valid String\n";
@@ -72,7 +78,7 @@ int main() {
         cout << "Invalid String\n";
     }
 
-    cout << "Enter the input string for Case 1 (0 and 1 only): ";
+    cout << "Case 1 (0 and 1 only): ";
     cin >> ip;
     if (testCase1(ip)) {
         cout << "Valid String\n";
@@ -80,7 +86,7 @@ int main() {
         cout << "Invalid String\n";
     }
 
-    cout << "Enter the input string for Case 2 (starts and ends with the same letter): ";
+    cout << "Case 2 (starts and ends with the same letter): ";
     cin >> ip;
     if (testCase2(ip)) {
         cout << "Valid String\n";
@@ -88,7 +94,7 @@ int main() {
         cout << "Invalid String\n";
     }
 
-    cout << "Enter the input string for Case 3 (starts with a letter): ";
+    cout << "Case 3 (starts with a letter): ";
     cin >> ip;
     if (testCase3(ip)) {
         cout << "Valid String\n";
