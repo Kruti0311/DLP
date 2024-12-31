@@ -38,7 +38,7 @@ bool finite(const string& ip) {
 // Case 1: Validate string with '0' and '1', where every '0' is immediately followed by '11'
 bool testCase1(const string& ip) {
     int n = ip.size();
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         if (ip[i] == '0') {
             if (i + 2 >= n || ip[i + 1] != '1' && ip[i + 2] != '1') {
                 return false;
