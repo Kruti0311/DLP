@@ -23,7 +23,7 @@ class LexicalAnalyzer
 private:
     vector<Token> tokens;
     vector<SymbolTableEntry> symbolTable;
-    unordered_set<string> keywords = {"int", "main", "printf", "scanf", "char", "return", "void", "struct", "long", "float", "double"};
+    unordered_set<string> keywords = {"int","printf", "scanf", "char", "return", "void", "struct", "long", "float", "double"};
     unordered_set<char> operators = {'+', '-', '*', '/', '=', '<', '>', '!', '&', '|'};
     unordered_set<char> punctuation = {',', ';', '(', ')', '{', '}', '[', ']'};
 
@@ -44,6 +44,9 @@ private:
 
     void addToSymbolTable(const string &identifier)
     {
+        if (identifier == "main")
+            return; // Do not add 'main' to the symbol table
+    
         for (const auto &entry : symbolTable)
         {
             if (entry.name == identifier)
@@ -51,6 +54,7 @@ private:
         }
         symbolTable.push_back({identifier});
     }
+    
 
     void reportLexicalError(const string &lexeme)
     {
