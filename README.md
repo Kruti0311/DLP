@@ -69,5 +69,4 @@ A → a | ε
 B → b | ε 
 C → ( S ) | c 
 
-**Practical : 7**
 
