@@ -1,60 +1,34 @@
 %{
-    #include <stdio.h>
-    #include <ctype.h>
-    #include <string.h>
-
-    extern FILE *yyin;
-    int yylex();
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 %}
 
+/* Define tokens */
+KEYWORD   int|char|return|if|else|while|for|do|switch|case|break|continue|default|void|float|double
+IDENTIFIER [a-zA-Z_][a-zA-Z0-9_]*
+CONSTANT  [0-9]+(\.[0-9]+)?
+STRING    ".*?"|'.*?'
+PUNCTUATION  [(){};,]
+OPERATOR   [=+\-*/%<>!&|^~]
+COMMENT    \/\/.*|\/\*[\s\S]*?\*\/
+WHITESPACE [ \t\n]+
+
 %%
-
-"auto"|"break"|"case"|"char"|"const"|"continue"|"default"|"do"|"double"|"else"|"enum"|"extern"|"float"|"for"|"goto"|"if"|"inline"|"int"|"long"|"register"|"restrict"|"return"|"short"|"signed"|"sizeof"|"static"|"struct"|"switch"|"typedef"|"union"|"unsigned"|"void"|"volatile"|"while"  
-    { printf("Keyword: %s\n", yytext); }
-
-[a-zA-Z_][a-zA-Z0-9_]*  
-    { printf("Identifier: %s\n", yytext); }
-
-[0-9]+  
-    { printf("Constant: %s\n", yytext); }
-
-"\""(\\.|[^"\\])*"\""  
-    { printf("String: %s\n", yytext); }
-
-[{}()\[\],;]  
-    { printf("Punctuation: %s\n", yytext); }
-
-[=+\-*/%<>!&|]  
-    { printf("Operator: %s\n", yytext); }
-
-"//".*  
-    { /* Ignore single-line comments */ }
-
-"/*"(.|\n)*?"*/"  
-    { /* Ignore multi-line comments */ }
-
-[ \t\n]+  
-    { /* Ignore whitespace */ }
-
-.  
-    { printf("Lexical Error: %s\n", yytext); }
-
+{KEYWORD}    { printf("Keyword: %s\n", yytext); }
+{IDENTIFIER} { printf("Identifier: %s\n", yytext); }
+{CONSTANT}   { printf("Constant: %s\n", yytext); }
+{STRING}     { printf("String: %s\n", yytext); }
+{PUNCTUATION} { printf("Punctuation: %s\n", yytext); }
+{OPERATOR}   { printf("Operator: %s\n", yytext); }
+{COMMENT}    { /* Ignore comments */ }
+{WHITESPACE} { /* Ignore whitespace */ }
+.            { printf("Lexical Error: %s\n", yytext); }
 %%
 
 int main() {
-    char filename[100];
-    printf("Enter C source file name: ");
-    scanf("%s", filename);
-    
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        perror("Error opening file");
-        return 1;
-    }
-
-    yyin = file;
+    printf("Enter C source code: \n");
     yylex();
-    fclose(file);
     return 0;
 }
 
