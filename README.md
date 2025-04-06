@@ -69,4 +69,45 @@ A → a | ε
 B → b | ε 
 C → ( S ) | c 
 
+**Practical : 8**
+Program definition :
+Predictive Parsing Table Construction and LL(1) Grammar Validation 
 
+Objective :
+Develop a program to construct a predictive parsing table for the given grammar. The program should analyse the generated parsing table to determine whether the grammar is LL(1) or not. If the grammar is LL(1), the program should also validate an input string against the givengrammar. 
+
+**Practical : 9**
+Program definition :
+String parsing using YACC 
+
+Objective :
+Develop a YACC program to validate input strings based on the given grammar. The program should parse the string using the grammar rules and determine whether the string is valid or invalid. 
+S → i E t S S' | a 
+S' → e S | ε 
+E → b 
+
+**Practical : 10**
+Program definition :
+Evaluating Arithmetic Expression with Bottom-Up Approach Using SDD 
+
+Objective :
+Develop a program to evaluate arithmetic expressions containing operators using a bottom-up parsing approach and below given Syntax-Directed Definitions (SDD) for semantic evaluation. The program will compute the result of the expression by building a parse tree using and will incorporate semantic rules to evaluate sub-expressions during parsing. 
+![image](https://github.com/user-attachments/assets/3b13cdfd-4e16-42c3-abcb-bbbd59f916c6)
+
+
+**Practical : 11**
+Program definition :
+Generate Intermediate Code Using Quadruple Table 
+
+Objective :
+Develop a program that break down the input string according to the grammar and produce a sequence of quadruples representing the intermediate code for the expression. 
+E → E + T | E – T | T 
+T → T * F | T / F | F 
+F → (E) | digit 
+
+**Practical : 12**
+Program definition :
+Code Optimization Using Constant Folding 
+
+Objective :
+Develop a program that identifies constant expressions at compile-time and replaces them with their evaluated results to enhance execution efficiency. 
