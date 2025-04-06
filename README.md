@@ -91,7 +91,7 @@ Program definition :
 Evaluating Arithmetic Expression with Bottom-Up Approach Using SDD 
 
 Objective :
-Develop a program to evaluate arithmetic expressions containing operators using a bottom-up parsing approach and below given Syntax-Directed Definitions (SDD) for semantic evaluation. The program will compute the result of the expression by building a parse tree using and will incorporate semantic rules to evaluate sub-expressions during parsing. 
+Develop a program to evaluate arithmetic expressions containing operators using a bottom-up parsing approach and below given Syntax-Directed Definitions (SDD) for semantic evaluation. The program will compute the result of the expression by building a parse tree using and will incorporate semantic rules to evaluate sub-expressions during parsing. <br>
 ![image](https://github.com/user-attachments/assets/3b13cdfd-4e16-42c3-abcb-bbbd59f916c6)
 
 
